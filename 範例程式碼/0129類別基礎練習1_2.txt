@@ -1,0 +1,63 @@
+package date0129;
+
+public class Ctest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// 產生物件
+		Test ttt = new Test();
+		// 呼叫ttt物件的方法
+		ttt.number_x(10);		
+		CCalculator ccc = new CCalculator();
+		ccc.set_value(10, 20, 30);
+		ccc.add();
+		ccc.sub();
+		ccc.mul();
+		ccc.avg();		
+	}
+
+}
+
+class CCalculator{
+	int a,b,c;
+	double sum;
+	void set_value(int x, int y,int z) {
+		a=x;
+		b=y;
+		c=z;		
+	}
+	void show() {
+		System.out.println("Total = "+ sum);
+	}
+	void sub() {
+		sum= a-b-c;	
+		show();
+	}
+	void add() {
+		sum = a+b+c;
+		show();
+	}
+	void mul() {
+		sum = a*b*c;	
+		show();
+	}
+	void avg() {
+		sum = (double)(a+b+c)/3;
+		show();
+	}
+	
+}
+
+class Test {
+	// 此處無須資料成員
+	// 定義number_x方法成員，並可傳遞參數
+	void number_x(int x) {
+		if (x == 0) {
+			System.out.println("It's 0");
+		} else if (x % 2 == 0) {
+			System.out.println("It's 雙數");
+		} else {
+			System.out.println("It's 單數");
+		}
+	}
+}

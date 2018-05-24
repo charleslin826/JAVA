@@ -1,0 +1,40 @@
+package date0208;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Practice2 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int key;
+		Scanner scn = new Scanner(System.in);
+		System.out.print("請輸入整數值: ");
+		try {
+			key = scn.nextInt();
+			if (key < 10) {
+				throw new IntegerTooSmall();
+			}
+			if (key > 70) {
+				throw new IntegerTooBig();
+			}
+			System.out.println("The number = " + key);
+		} catch (IntegerTooBig eBig) {
+			// TODO Auto-generated catch block
+			System.out.println(eBig.toString());
+		} catch (IntegerTooSmall eSmall) {
+			System.out.println(eSmall.toString());
+		} catch (InputMismatchException i) {
+			System.out.println("輸入錯誤");
+		}
+	}
+}
+class IntegerTooBig extends Exception {
+	public String toString() {
+		return "數值太大";
+	}
+}
+class IntegerTooSmall extends Exception {
+	public String toString() {
+		return "數值太小";
+	}
+}

@@ -1,0 +1,47 @@
+package date0208;
+public class Practice3 {
+	public static void main(String[] args) {
+		Bank Jack = new Bank();		
+			try {
+				Jack.setAccount("A001", "Jack", -15000);
+				Jack.showdata();
+			} catch (BankException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e.toString());
+			}
+	}
+}
+class BankException extends Exception {
+	public String toString() {
+		return "怎麼能讓金額為負的";
+	}
+	public String getMessage() {
+		return "你有錯，不知道嗎?";
+	}
+	public void showMessage() {
+		System.out.println("有例外發生");
+	}
+	public void printStackTrace(){
+		System.out.println("此錯誤訊息由printStackTrace發送");
+	}
+}
+class Bank {
+	String accno;
+	String name;
+	long account;
+	void setAccount(String cno, String cname, long m) throws BankException {
+		if (m < 0) {
+			throw new BankException();
+		} else {
+			accno = cno;
+			name = cname;
+			account = m;
+		}
+	}
+	void showdata() {
+		System.out.println("Account = "+ accno);
+		System.out.println("Name = "+ name);
+		System.out.println("Money ="+ account);
+	}
+}

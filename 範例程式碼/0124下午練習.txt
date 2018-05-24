@@ -1,0 +1,44 @@
+package date0124;
+
+public class ArrayPractice1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int salessum = 0;
+		String productname[] = { "Bill", "John", "Kenny", "Á`­p" };
+		int[] qty[] = { { 33, 32, 56, 45, 33, 0 }, { 77, 33, 45, 68, 23, 0 }, { 43, 55, 43, 67, 65, 0 },
+				{ 0, 0, 0, 0, 0, 0 } };
+
+		// „« ¨C¤@¦ì¾P°â­ûªº¾P°âÁ`ª÷ÃB
+		for (int i = 0; i < qty.length; i++) { // ¦C
+			for (int j = 0; j < qty[i].length - 1; j++) { // ¦æ --¦ý¸Ó¦C³Ì«á¤@¦æ¤£»Ý­n­pºâ¡A©Ò¥H´î1(qty[i].length-1)
+				salessum += qty[i][j];				
+			}			
+			qty[i][5] = salessum;
+			salessum = 0;
+		}
+//		// ­pºâ¨C¤@²£«~¾P°âÁ`ª÷ÃB
+		int productsum = 0;
+		int k,j;
+		for ( j = 0; j < qty[0].length-1; j++) { // ¦æÅÜ¤Æ
+			for ( k = 0; k < qty.length; k++) { // ¦CÅÜ¤Æ¸û§Ö
+				productsum += qty[k][j];
+				//System.out.println(qty[k][j]);				
+			}
+			qty[k-1][j]=productsum;
+			productsum = 0;
+		}
+		
+		System.out
+				.println("¾P°â­û" + "\t" + "²£«~A" + "\t" + "²£«~B" + "\t" + "²£«~C" + "\t" + "²£«~D" + "\t" + "²£«~E" + "\t" + "Á`­p");
+		
+		for(int x=0;x<qty.length;x++) {
+			System.out.print(productname[x]+"\t");
+			for(int y=0;y<qty[x].length;y++) {
+				System.out.print(qty[x][y]+"\t");				
+			}
+			System.out.println();
+		}
+	}
+
+}

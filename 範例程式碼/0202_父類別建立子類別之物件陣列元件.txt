@@ -1,0 +1,67 @@
+package date0202;
+
+public class ClassExtendsTest5 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double[] big=new double[3];
+		Cshape shp[] = new Cshape[3];		
+		shp[0] = new CCircle(2.0);
+		shp[1] = new CTringle(20, 10);
+		shp[2] = new CSquare(25);
+		for(int i=0;i<shp.length;i++) {
+			big[i]=shp[i].area();
+		}		
+		
+	}
+}
+
+// 父
+class Cshape {
+	public static double pi = 3.14;
+
+	public double area() {
+		return 0.0;
+	}
+
+	static void largest(Cshape sss[]) {
+		double max;
+
+	}
+}
+
+class CCircle extends Cshape { // 圓形
+	double radius;
+
+	CCircle(double r) {
+		radius = r;
+	}
+
+	public double area() {
+		return pi * radius * radius;
+	}
+}
+
+class CTringle extends Cshape { // 三角形
+	double base, high;
+
+	CTringle(double b, double h) {
+		base = b;
+		high = h;
+	}
+
+	public double area() {
+		return (base * high) / 2;
+	}
+}
+
+class CSquare extends Cshape { // 方形
+	double side;
+
+	CSquare(double s) {
+		side = s;
+	}
+
+	public double area() {
+		return (side * side);
+	}
+}

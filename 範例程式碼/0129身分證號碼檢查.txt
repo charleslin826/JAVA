@@ -1,0 +1,69 @@
+package date0129;
+
+import java.util.Scanner;
+
+public class IdTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		System.out.print("Please input ID.");
+		String id = "";
+		id = scn.next();// 輸入ID		
+		AlphId alph = new AlphId();// 建立物件
+		alph.tranfer(id); // 呼叫物件的方法並傳遞id
+	}
+}
+
+// ***********
+class AlphId {
+	int x1, x2;
+	int k;
+	int result;
+	char[] idArrayChar = new char[10];
+	int[] idDigit = new int[10];
+
+	void tranfer(String alphbet) {
+		switch (alphbet.toUpperCase().charAt(0)) {
+		case 'A':
+			x1 = 1;
+			x2 = 0;
+			System.out.println("x1= " + x1);
+			System.out.println("x2= " + x2);
+			break;
+		case 'B':
+			x1 = 1;
+			x2 = 1;
+			System.out.println("x1= " + x1);
+			System.out.println("x2= " + x2);
+			break;
+		case 'C':
+			x1 = 1;
+			x2 = 2;
+			System.out.println("x1= " + x1);
+			System.out.println("x2= " + x2);
+			break;
+		}
+		// 測試D1 - D9所抓取的數值是否正確
+		for (int i = 1; i < 10; i++) {
+			idArrayChar[i] = alphbet.charAt(i);
+			idDigit[i] = (int) (idArrayChar[i]) - 48;
+			// idDigit[i] = (int) (idArrayChar[i]) ;
+		}
+		// d1- d9乘上系數
+		for (int i = 1; i < 9; i++) {
+			k = 9;
+			result += idDigit[i] * (k - i);
+		}
+		// 累加
+		result += x1 + x2 + idDigit[9];
+		// 判斷是否能被10整除
+		if (result % 10 == 0) {
+			System.out.println("身分證正確");
+		} else {
+			System.out.println("身分證錯誤");
+		}
+
+	}
+
+}
